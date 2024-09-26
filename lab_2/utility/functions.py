@@ -20,45 +20,6 @@ def read_json(path_to_file: str) -> dict:
         raise error
 
 
-def save_json(path_to_file: str, data: dict) -> None:
-    """
-    Save a dictionary as JSON to a file.
-
-    Args:
-        path_to_file (str): Location to save the JSON file.
-        data (dict): Data to be saved as JSON.
-
-    Returns:
-        None
-    """
-    try:
-        with open(path_to_file, 'w', encoding='utf-8') as json_file:
-            json.dump(data, json_file, indent=4, ensure_ascii=False)
-    except Exception as error:
-        raise error
-    
-    
-def read_text(path_to_file: str) -> str:
-    """_summary_
-
-    Args:
-        path_to_file (str): _description_
-
-    Returns:
-        str: _description_
-    """
-    content = None
-    
-    try:
-        with open(path_to_file, 'r', encoding='utf-8') as file:
-            content = file.read()
-    except FileNotFoundError:
-        print(f"Unable to locate file: {path_to_file}")
-    except Exception as error:
-        print(f"Unexpected error: {error}")
-    return content
-
-
 def write_text(path_to_file: str, content: str) -> bool:
     """
     Write given text content to a specified file.
@@ -72,7 +33,7 @@ def write_text(path_to_file: str, content: str) -> bool:
     """
     is_saved = True
     try:
-        with open(path_to_file, 'w', encoding='utf-8') as file:
+        with open(path_to_file, 'a', encoding='utf-8') as file:
             file.write(content)
     except FileNotFoundError:
         print(f"Saving failed: file {path_to_file} not found.")
