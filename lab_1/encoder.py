@@ -7,14 +7,14 @@ from func import read_text, write_text, read_json, save_json
 project_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(project_directory)
 
-def encode(original_file: str, result_file: str, key_file: str, shift_value: int) -> None:
+def encode(original_file: str, result_file: str, key_json_file: str, shift_value: int) -> None:
     """
     Encrypt the text using Caesar cipher.
 
     Args:
         original_file: Path to the source .txt file.
         result_file: Path to save the encrypted .txt file.
-        key_file: Path to store the encryption key as .json file.
+        key_json_file: Path to store the encryption key as .json file.
         shift_value: Number of positions to shift the alphabet.
     """
     alphabet = ALPHABET
@@ -37,19 +37,19 @@ def encode(original_file: str, result_file: str, key_file: str, shift_value: int
     encrypted_text = f'"{encrypted_text}"'
 
     write_text(result_file, encrypted_text)
-    save_json(key_file, cipher_map)
+    save_json(key_json_file, cipher_map)
 
 
 def main() -> None:
     """
-    Example function to call encode with hardcoded parameters.
+    Example function to call encoder with hardcoded parameters. Or just main.
     """
-    input_file = "lab_1/task1/original.txt"    
-    output_file = "lab_1/task1/result.txt"   
+    original_file = "lab_1/task1/original.txt"    
+    result_file = "lab_1/task1/result.txt"   
     key_json_file = "lab_1/task1/key.json"      
     shift_value = 3                          
 
-    encode(input_file, output_file, key_json_file, shift_value)
+    encode(original_file, result_file, key_json_file, shift_value)
 
 if __name__ == "__main__":
     main()
