@@ -15,9 +15,9 @@ def encode(original_file: str, result_file: str, key_json_file: str, shift_value
         original_file: Path to the source .txt file.
         result_file: Path to save the encrypted .txt file.
         key_json_file: Path to store the encryption key as .json file.
-        shift_value: Number of positions to shift the alphabet.
     """
     alphabet = ALPHABET
+    shift_value = 3
     encrypted_text = ""
 
     raw_text = read_text(original_file)
@@ -35,22 +35,9 @@ def encode(original_file: str, result_file: str, key_json_file: str, shift_value
         encrypted_text += cipher_map.get(char, char)
 
     encrypted_text = f'"{encrypted_text}"'
-
-    write_text(result_file, encrypted_text)
+    
     save_json(key_json_file, cipher_map)
-
-
-def main() -> None:
-    """
-    Example function to call encoder with hardcoded parameters. Or just main.
-    """
-    original_file = "lab_1/task1/original.txt"    
-    result_file = "lab_1/task1/result.txt"   
-    key_json_file = "lab_1/task1/key.json"      
-    shift_value = 3                          
-
-    encode(original_file, result_file, key_json_file, shift_value)
-
-if __name__ == "__main__":
-    main()
-
+    write_text(result_file, encrypted_text)
+    
+    
+    

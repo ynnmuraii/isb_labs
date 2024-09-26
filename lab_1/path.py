@@ -1,0 +1,7 @@
+original_decrypt_file = "lab_1/task2/original.txt"
+original_encrypt_file = "lab_1/task1/original.txt"
+frequency_file = "lab_1/task2/frequency.txt"
+result_decrypt_file = "lab_1/task2/result.txt"
+result_encrypt_file = "lab_1/task1/result.txt"
+key_decrypt_file = "lab_1/task2/key.json"
+key_encrypt_file = "lab_1/task1/key.json"

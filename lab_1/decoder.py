@@ -56,21 +56,3 @@ def decode(original_file: str, result_file: str, key_json_file: str) -> None:
         print("An error occurred during decryption:", error)
 
     write_text(result_file, result)
-
-
-def main() -> None:
-    """
-    Main function to perform frequency analysis on a text file.
-    
-    """
-    original_file = "lab_1/task2/original.txt"
-    frequency_file = "lab_1/task2/frequency.txt"
-    result_file = "lab_1/task2/result.txt"
-    key_json_file = "lab_1/task2/key.json"
-
-    frequency(original_file, frequency_file)
-    decode(original_file, result_file, key_json_file)
-
-
-if __name__ == "__main__":
-    main()
