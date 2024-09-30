@@ -5,7 +5,7 @@ import json
 
 logging.basicConfig(level=logging.DEBUG)
 
-def read_file(path: str) -> bytes:
+def read_byte_file(path: str) -> bytes:
     """
     Load a file in binary mode.
 
@@ -29,7 +29,7 @@ def read_file(path: str) -> bytes:
         return b''
 
 
-def write_file(path: str, content: bytes) -> None:
+def write_byte_file(path: str, content: bytes) -> None:
     """
     Save binary data to a file.
 
