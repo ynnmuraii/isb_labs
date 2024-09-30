@@ -5,10 +5,10 @@ from cryptography.hazmat.primitives.serialization import load_pem_public_key, lo
 from cryptography.hazmat.primitives.asymmetric import padding as rsa_padding
 
 
-class Assymetric:
+class Asymmetric:
     """
-    Class for RSA key management and asymmetric encryption/decryption.
-    
+    Class for RSA key management and asymmetric encryption/decryption
+
     Attributes:
         _private_key: The RSA private key.
         _public_key: The RSA public key.
@@ -21,21 +21,20 @@ class Assymetric:
     def create_key_pair(self, key_size: int = 2048) -> None:
         """
         Generate RSA key pair (private and public keys).
-        
+
         Args:
             key_size (int): Length of RSA key (default is 2048 bits).
         """
-        key = rsa.generate_private_key(
+        self._private_key = rsa.generate_private_key(
             public_exponent=65537,
             key_size=key_size,
         )
-        self._private_key = key
-        self._public_key = key.public_key()
+        self._public_key = self._private_key.public_key()
 
     def save_public_key(self, filepath: str) -> None:
         """
         Save the public key to a PEM file.
-        
+
         Args:
             filepath (str): File path to save the public key.
         """
@@ -52,7 +51,7 @@ class Assymetric:
     def save_private_key(self, filepath: str) -> None:
         """
         Save the private key to a PEM file.
-        
+
         Args:
             filepath (str): File path to save the private key.
         """
@@ -70,7 +69,7 @@ class Assymetric:
     def load_public_key(self, filepath: str) -> None:
         """
         Load a public key from a PEM file.
-        
+
         Args:
             filepath (str): File path of the public key.
         """
@@ -85,7 +84,7 @@ class Assymetric:
     def load_private_key(self, filepath: str) -> None:
         """
         Load a private key from a PEM file.
-        
+
         Args:
             filepath (str): File path of the private key.
         """
@@ -99,11 +98,11 @@ class Assymetric:
 
     def encrypt_data(self, data: bytes) -> bytes:
         """
-        Encrypts data using the public key.
-        
+        Encrypts data using RSA algorithm.
+
         Args:
             data (bytes): Data to encrypt.
-        
+
         Returns:
             bytes: Encrypted data.
         """
@@ -122,11 +121,11 @@ class Assymetric:
 
     def decrypt_data(self, encrypted_data: bytes) -> bytes:
         """
-        Decrypts data using the private key.
-        
+        Decrypts data using RSA algorithm.
+
         Args:
             encrypted_data (bytes): Data to decrypt.
-        
+
         Returns:
             bytes: Decrypted data.
         """

@@ -1,7 +1,0 @@
-{
-    "original_file": "texts/original.txt",
-    "encrypted_file": "texts/encrypted.txt",
-    "decrypted_file": "texts/decrypted.txt",
-    "public_key": "key/public.pem",
-    "private_key": "key/private.pem"
-  }

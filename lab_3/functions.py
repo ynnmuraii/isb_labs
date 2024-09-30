@@ -94,3 +94,22 @@ def write_file(filepath: str, content: str) -> None:
         logging.error(f"Failed to write to file '{filepath}': {e}")
     except Exception as e:
         logging.error(f"An unexpected error occurred: {e}")
+        
+
+def read_settings(settings_file):
+    """Loads settings from a JSON file.
+    
+    Args:
+        settings_file (str): Path to the settings JSON file.
+
+    Returns:
+        dict: Loaded settings.
+    """
+    try:
+        with open(settings_file, "r") as file:
+            settings = json.load(file)
+        return settings
+    except FileNotFoundError:
+        print(f"Settings file '{settings_file}' not found.")
+    except Exception as e:
+        print(f"Error reading settings file: {str(e)}")

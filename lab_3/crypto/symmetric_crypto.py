@@ -100,3 +100,4 @@ class Symmetric:
             print(f"Error during decryption: {e}")
         except Exception as e:
             print(f"An unexpected error occurred: {e}")
+        print(f"Encrypted data size: {len(encrypted_data)} bytes")
